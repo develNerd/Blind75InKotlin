@@ -44,31 +44,61 @@ The number of nodes in both trees is in the range [0, 100].
  * }
  */
 
+
+
+/**
+*Solution Summary :
+ 2 Binary Trees are said to be same if their identical and have the same number of nodes
+ and have same values in those nodes.
+
+ So what we do is basically compare the left's(left of both trees) of both trees and compare
+ each of their rights too.
+
+*
+*
+* */
+
+
 class TreeNode(var `val`: Int) {
         var left: TreeNode? = null
          var right: TreeNode? = null
     }
 
 fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
-    //1
+    /**
+     * 1.
+     * We need a base condition for when the recursive function should
+     * terminate.When both treesNodes are null we return a true
+     * because that'll be the end of the tree
+     *
+     *
+    * */
     if(p == null && q== null){
         return true
     }
-    //2
+    /**
+     * Return a false if treeNodes instances aren't equal
+    * */
     if(p != null && q==null){
         return false
     }
-    //2
+    /**
+     * Return a false if treeNodes instances aren't equal
+     * */
     if(q != null && p==null){
         return false
     }
 
-    //3
+    /**
+     * Return a false if treeNodes values aren't equal
+     * */
     if (p?.`val` != q?.`val`) {
         return false;
     }
 
 
-    //4
+    /**
+     * Recur isSameTree on the left's and right's of both trees
+     * */
     return isSameTree(p?.left,q?.left) && isSameTree(p?.right,q?.right)
 }
