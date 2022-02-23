@@ -64,3 +64,77 @@ fun maxProfit(prices: IntArray): Int {
     }
     return maxprofit
 }
+
+
+
+
+
+
+/**
+Taking this array - [7, 1, 5, 3, 6, 4]
+* Let's look at a better solution with O(n) time complexity
+* If we plot the numbers of the given array on a graph, we get:
+
+if we plot the solution on a graph we buy at the lowest point on the graph and sell at
+the highest point
+
+          |
+          |
+          |
+          -> 7        *
+          |
+          -> 6                                            *
+          |
+          -> 5                            *
+  Prices  |
+          -> 4
+          |
+          -> 3                                    *
+          |
+          -> 2
+          |
+          -> 1                   *
+          |__     __   1   __    2  __    3  __   4   __   5   __   6   __
+                                          Days
+
+ From the graph we buy at day 2 (the most minimum point on the graph) and sell on day 5 (th highest point on the graph after we buy -- reference the main question)
+*/
+
+
+fun maxProfit2(prices: IntArray): Int {
+    /**
+     *  [7, 1, 5, 3, 6, 4]
+     * We first assign the minprice a very large value
+     * */
+    var minprice = Int.MAX_VALUE // very large value
+    var maxprofit = 0
+    for (i in prices.indices) {
+        /**
+         * At this point we check if the current price[i] is less than the min price
+         * to keep track of the lowest value on the graph as we go......
+         * */
+        if (prices[i] < minprice)
+        {
+            minprice = prices[i] // | 7 || 1 |||  1 |||| 1
+        }
+        /**
+         * We then keep track of the largest value on the graph in the same loop
+         * to keep track of the maximum profit that could be attained on the graph above
+         * as we proceed
+         *
+         *
+         * */
+        else if (prices[i] - minprice > maxprofit)
+        {
+            maxprofit = prices[i] - minprice // ||| 4 |||| 4 ||||| 5
+        }
+    }
+    return maxprofit
+}
+
+/**
+ * Conclusion : The algorithm has a time complexity of O(n) and a space
+ * complexity of O(1), since the number of variables does not grow with
+ * corresponding array size
+ *
+ * */
