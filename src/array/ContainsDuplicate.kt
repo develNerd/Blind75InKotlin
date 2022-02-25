@@ -42,19 +42,41 @@ fun main(){
     println(containsDuplicate(nums))
 }
 
+
+/**
+ *
+ * The solution for this is quite simple,
+ * we save each integer in a mutablemap as we iterate
+ * through the array if it does not exist already in
+ * the array.
+ *
+ * */
+
 fun containsDuplicate(nums: IntArray): Boolean {
     /**
-     * [1,2,3,1]
+     * Declare a mutable map to hold the key value pair
+     *
      * */
     val numsMap = mutableMapOf<Int,Int>()
     for(i in nums.indices){
+        /**
+         * Check if [numsMap[i]] is in the mutable map keys
+         * return true if the number is contained in the map keys
+         * and continue otherwise
+        * */
         if (!numsMap.containsKey(nums[i])){
+            /**
+             * Set the number as the key and the value as the index
+             * */
             numsMap[nums[i]] = i // (i1 - {1})  (i2 - {1,2}) (i3 - {1,2,3})
         }else{
             return true
         }
     }
 
+    /**
+     * Return false if there is no recurring numbers in the array.
+     * */
     return false
 }
 
