@@ -69,6 +69,7 @@ fun containsDuplicate(nums: IntArray): Boolean {
              * Set the number as the key and the value as the index
              * */
             numsMap[nums[i]] = i // (i1 - {1})  (i2 - {1,2}) (i3 - {1,2,3})
+
         }else{
             return true
         }

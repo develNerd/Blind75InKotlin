@@ -59,12 +59,12 @@ The number of nodes in both trees is in the range [0, 100].
 * */
 
 
-class TreeNode(var `val`: Int) {
-        var left: TreeNode? = null
-         var right: TreeNode? = null
+class BinaryTreeNode(var `val`: Int) {
+        var left: BinaryTreeNode? = null
+         var right: BinaryTreeNode? = null
     }
 
-fun isSameTree(p: TreeNode?, q: TreeNode?): Boolean {
+fun isSameTree(p: BinaryTreeNode?, q: BinaryTreeNode?): Boolean {
     /**
      * 1.
      * We need a base condition for when the recursive function should

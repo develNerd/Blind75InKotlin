@@ -49,6 +49,7 @@ Submissions
 * */
 
 
+
 /**
 *
 Solution
@@ -96,7 +97,7 @@ fun twoSum(nums: IntArray, target: Int): IntArray {
         var complement = target.minus(nums[i])
 
         //4
-        if(nums[i] in complements.keys){
+        if(nums[i] in complements.keys ){
             //5
             return intArrayOf(complements.get(nums[i])!!,i)
         }

@@ -42,6 +42,10 @@ Constraints:
  * Buy on day 2(price = 1) and sell on day 5 (price = 6) maxProfit = 6-1 = 5
 * */
 
+fun main(){
+    println(maxProfit2(intArrayOf(6,0,-1,1,10)))
+}
+
 fun maxProfit(prices: IntArray): Int {
     /**
     * We set the max profit as zero -> (Taking care of the edge case for returning 0)
@@ -51,7 +55,7 @@ fun maxProfit(prices: IntArray): Int {
     for (i in 0 until prices.size - 1) {
         /**
          * We start the inner loop from an index i+1 since the buying price has to be of a lower index
-         *
+         *d
          * */
         for (j in i + 1 until prices.size) {
             /**
